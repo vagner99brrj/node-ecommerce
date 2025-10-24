@@ -16,12 +16,11 @@ const ProductSchema = new mongoose.Schema({
         required: true,
         min: 0.01
     },
-    stack: {
-        type: Number,
-        required: true,
-        default: 0,
-        min: 0
-    },
+ stack: {
+    type: Number,
+    default: 0,
+    min: 0
+},
     createdAt: {
         type: Date,
         default: Date.now

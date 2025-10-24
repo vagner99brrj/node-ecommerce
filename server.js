@@ -5,10 +5,13 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const DB_URL =process.env.MONGO_URL;
+const productRoutes = require('./routes/productRoutes');
+
 
 // Middleware
 
 app.use(express.json());
+app.use('/api', productRoutes);
 
 // Database Connection
 mongoose.connect(DB_URL) 

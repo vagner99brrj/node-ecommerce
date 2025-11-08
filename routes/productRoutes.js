@@ -20,6 +20,23 @@ router.post('/products', async (req, res) => {
         }
         res.status(500).json({ error: 'Internal Server Error' });
     }
+
+   router.get('/products', async (req, res) => {
+    try {
+        const products = await Product.find();
+        res.status(200).json({
+            message: 'Produtos encontrados com sucesso!',
+            count: products.length,
+            products: products
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Erro ao buscar produtos',
+            error: error.message
+        });
+    }   
+    
 });
+   
 
 module.exports = router;
